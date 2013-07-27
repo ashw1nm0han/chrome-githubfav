@@ -21,7 +21,7 @@ function processBookmark(bookmark, github_bookmarks){
 		});
 	}
 	else {
-	    var re = /github/i;
+	    var re = /github.com/i;
 		if(re.test(bookmark.url)){
 			github_bookmarks.push(bookmark);
 		}
