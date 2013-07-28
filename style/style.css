@@ -1,0 +1,31 @@
+body {
+	font-family: Calibri;
+	min-width: 300px;
+	text-align : left;
+	background: #edf4f0;
+}
+
+.main_title div{
+	border-bottom: solid 1px #d9e3dc;
+	color: #c0cac3;
+	font-style: italic;
+	font-weight: 700;
+}
+
+.main_body ul{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.main_body li {
+	border-top: solid 1px #d9e3dc;
+	color: #c0cac3;
+	font-style: italic;
+	list-style-type: none;
+}
+
+.main_body a {
+	-webkit-transition: all 0.25s ease-out;
+	text-decoration: none;
+}
