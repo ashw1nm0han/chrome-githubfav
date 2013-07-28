@@ -4,22 +4,33 @@ var MSG_NO_BOOKMARKS =  '<p><strong>No Github Bookmarks Found</strong></p>';
 var GITHUB_REGEX = /github.com/i;
 
 function createExtensionItem(bookmark){
-	var li = $('<li>');
-	var span = $('<span>');
+	var row = $('<tr>');
+	
+	var colleft = $('<td>');
+	colleft.attr("class", "link_main");
 	var a = $('<a>');
-	a.attr("href", bookmark.url);
-	a.attr("title", bookmark.url);
+	a.attr({"href": bookmark.url, "title": bookmark.url});
 	a.text(bookmark.title);
-	span.append(a);
-	li.append(span);
-	return li;
+	colleft.append(a);
+	
+	var colright = $('<td>');
+	colright.attr("class", "link_remove");
+	var a_remove = $('<a>');
+	a_remove.attr({"title": "remove", "href": "remove", "id": bookmark.id});
+	a_remove.text("remove");
+	colright.append(a_remove);
+	
+	row.append(colleft);
+	row.append(colright);
+	return row;
 }
 
 function addToPage(github_bookmarks){
 	var div = $(ID_NO_BOOKMARKS);
+	div.empty();
 	if(github_bookmarks.length > 0)
 	{
-		var list = $('<ul>');
+		var list = $('<table>');
 		github_bookmarks.forEach(function(bookmark){
 			list.append(createExtensionItem(bookmark));
 		});
@@ -59,6 +70,14 @@ document.addEventListener(DOM_CONTENT_LOADED, function(){
 });
 
 $(document).on( "click", "a", function() {
-	chrome.tabs.create({"url":this.href}, function(){});
-	return false;
+	if($(this).parent().attr("class") == "link_main"){
+		chrome.tabs.create({"url":this.href}, function(){});
+		return false;
+	}
+	
+	if($(this).parent().attr("class") == "link_remove"){
+		chrome.bookmarks.remove(this.id);
+		loadMarks();
+		return false;
+	}	
 });

@@ -1,5 +1,25 @@
-body {font-family: Calibri;min-width: 300px;text-align : left;}
-.main_title div{border-bottom: solid 2px #d9e3dc;font-weight:700;color: #c0cac3;font-style: italic;}
-.main_body ul{list-style-type: none;padding: 0px;margin: 0px;}
-.main_body li {border-top: solid 2px #d9e3dc;list-style-type: none;}
-.main_body a {-webkit-transition: all 0.25s ease-out;text-decoration: none;}
+body {
+	font-family: Calibri;
+	min-width: 500px;
+}
+
+table {
+	border-collapse:collapse;
+}
+
+table tr {
+	border-bottom: solid 2px #d9e3dc;
+}
+
+table tr td {
+	text-align : center;
+	width: 100%;
+}
+
+div .main_title {
+	border-bottom: solid 2px #d9e3dc;
+	font-weight:700;
+	color: #c0cac3;
+	font-style: italic;
+	text-align :center;
+}
