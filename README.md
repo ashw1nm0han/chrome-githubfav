@@ -10,3 +10,5 @@ v 1.0.
 2. Remove Bookmarks through extension.
 
 Created to get better understanding on the Chrome Extensions API.
+
+https://chrome.google.com/webstore/detail/github-bookmarks/iihlijnlbfnhnbomjclpfkjggdbdpnnk
